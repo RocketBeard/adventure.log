@@ -1,0 +1,54 @@
+<?php
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
+?>
+<!doctype html>
+<html lang="en"></html>
+
+
+<style>
+    
+h1{
+    text-align: center;
+}
+.middle {
+    display: inline-block;
+    width: 200px;
+}
+.wrapper {
+    text-align: center;
+}
+</style>
+
+<head>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+<div class=wrapper>
+<div class=login>
+    <h1>Please log In</h1>
+
+<form action="authenticate.php" method="post">
+<label for="username">
+    <i class="fas fa-user"></i>
+</label>
+<input type ="text" name="username" placeholder="username" id="username" required>
+<label for="password">
+    <i class="fas fa-lock"></i>
+</label>
+<input type ="password" name="password" placeholder="password" id="password" required>
+<input type="submit" value="Login">
+</form>
+</div>
+</div>
+</body>
+
+
+</html>
